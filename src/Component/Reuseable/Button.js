@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
 text-transform: capitalize;
-
+background-image: linear-gradient(to right, #ff564f, #fb8e39, #fe6948);
 background: transparent;
 border: 0.05rem solid var(--lightBlue);
 color: ${prop => prop.cart ? "var(--mainYellow)" : "var(--lightBlue)"};

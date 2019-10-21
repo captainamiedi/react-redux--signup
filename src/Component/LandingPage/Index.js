@@ -3,6 +3,9 @@ import Navbar from './Navbar';
 import First from './First';
 import Second from './Second';
 import Third from './Third';
+import Fourth from './Fourth';
+import Fifth from './Fifth';
+import Footer from './Footer';
 
 
 function LandingPage() {
@@ -12,6 +15,9 @@ function LandingPage() {
             <First />
             <Second />
             <Third />
+            <Fourth />
+            <Fifth />
+            <Footer />
         </div>
     )
 }
