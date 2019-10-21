@@ -1,1 +1,1 @@
-# Onekiosk-Frondend
+# OneKioskAfrica

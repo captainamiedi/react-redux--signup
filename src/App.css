@@ -3,3 +3,18 @@ body {
   font-family: 'Oswald', sans-serif !important;
   font-family: 'Arvo', serif !important;
 }
+.carousel {
+  width: 100%;
+}
+.carousel p {
+  color: red;
+}
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+}
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}

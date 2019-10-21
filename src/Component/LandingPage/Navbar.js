@@ -1,31 +1,30 @@
 import React from 'react'
 import styled from 'styled-components';
 import logo from '../../images/BLACK.png';
-import {ButtonContainer} from '../Reuseable/Button'
 
-export default function Navbar() {
+function Navbar() {
     return (
-        <NavbarWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 container-fluid">
-            <img src={logo} alt="logo" />
-            <ul className="navbar-nav align-items-center">
-                <li className="nav-item ml-4">Home</li>
-                <li className="nav-item ml-4">About Us</li>
-                <li className="nav-item ml-4">Shoppers</li>
-                <li className="nav-item ml-4">Stores</li>
-                <li className="nav-item ml-4">Contact</li>
-                <li className="nav-item ml-4">
-                    <ButtonContainer className="shadow rounded p-2">
-                        Login
-                    </ButtonContainer>
-                </li>
+        <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 container-fluid">
+            <img src={logo} alt="logo" className="navbar-brand pt-1" />
+            <div>
+            <ul className="navbar-nav pt-1">
+                <li className="nav-item mx-3">Home</li>
+                <li className="nav-item mx-3">About Us</li>
+                <li className="nav-item mx-3">Shoppers</li>
+                <li className="nav-item mx-3">Contact Us</li>
+                <li className="nav-item mx-3"><button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">Login</button></li>
             </ul>
-        </NavbarWrapper>
+            </div>
+        </NavWrapper>
     )
 }
 
-const NavbarWrapper = styled.div`
+const NavWrapper = styled.nav`
     display: flex;
     justify-content: space-between;
-    background-image: linear-gradient(to right, #f6f5f5, #fafafa, #fd7941, #fbab31, #fd9239);
+    padding-top: 1rem;
+    background-image: linear-gradient(to right, #f5f3f2 0%, #f74639 50%, #f79d1e 100%);
     color: #ffffff
 `;
+
+export default Navbar
