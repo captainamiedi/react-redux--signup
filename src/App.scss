@@ -1,0 +1,24 @@
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
+}
+.p-viewer{
+  float: right;
+  margin-top: -38px;
+  position: relative;
+  z-index: 1;
+  cursor:pointer;
+}
+.form-rounded {
+  border-radius: 2rem !important;
+  padding: 1.5rem 1rem !important;
+  background-color: #EFEFEF !important;
+  border: none !important;
+  }
+.text-red {
+  color: #FB988E;
+}
+.text-color {
+  color: #A1A1A3 !important;
+}
