@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 function Second() {
     return (
-        <div>
+        <SecondWrapper>
             <h2 className="text-center mt-3"><strong>How it works</strong></h2>
             <div className="row justify-content-center">
                 <div className="col-9 mx-0 col-md-6 col-lg-3 my-3 text-center">
@@ -34,12 +35,15 @@ function Second() {
                 </div>
                 </div>
             </div>
-            <div className="text-center">
+            <div className="text-center ">
 
                 <p><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill bg-danger" type="submit">Learn More</button></p>
             </div>
-        </div>
+        </SecondWrapper>
     )
 }
 
+const SecondWrapper = styled.div`
+    background-color: #fed6a2
+`;
 export default Second
