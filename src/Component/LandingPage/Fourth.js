@@ -11,10 +11,10 @@ export default function Fourth() {
             <div className="row justify-content-center">
                 <div className="col-9 mx-0 col-md-6 col-lg-3 my-3 text-center">
                 <div className="card shadow rounded">
-                    <img src={delivery} class="card-img-top" alt="..." />                   
-                    <div class="card-body">
-                        <h5 class="card-title">Become a delivery agaent</h5>
-                        <p class="card-text">Fill your cart with product from your favorite store.</p>
+                    <img src={delivery} className="card-img-top" alt="..." />                   
+                    <div className="card-body">
+                        <h5 className="card-title">Become a delivery agaent</h5>
+                        <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
                             <ButtonContainer>Apply</ButtonContainer>
                         </div>
@@ -23,10 +23,10 @@ export default function Fourth() {
                 </div>  
                 <div className="col-9 mx-0 col-md-6 col-lg-3 my-3 text-center">
                 <div className="card shadow rounded">
-                    <img src={store} class="card-img-top" alt="..." />                   
-                    <div class="card-body">
-                        <h5 class="card-title">For Store Owner</h5>
-                        <p class="card-text">Fill your cart with product from your favorite store.</p>
+                    <img src={store} className="card-img-top" alt="..." />                   
+                    <div className="card-body">
+                        <h5 className="card-title">For Store Owner</h5>
+                        <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
                             <ButtonContainer>Apply</ButtonContainer>
                         </div>

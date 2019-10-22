@@ -47,5 +47,5 @@ export default class Fifth extends Component {
 }
 
 const FifthWrapper = styled.div`
-    background-color: #fcfcfc
+    background-color: #eaeaea
 `;

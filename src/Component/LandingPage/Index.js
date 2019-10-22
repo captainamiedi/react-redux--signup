@@ -11,7 +11,7 @@ import Footer from './Footer';
 function LandingPage() {
     return (
         <div>
-            <Navbar />
+            {/* <Navbar /> */}
             <First />
             <Second />
             <Third />

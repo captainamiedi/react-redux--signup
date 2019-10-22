@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {ButtonContainer} from '../Reuseable/Button';
 
 function Second() {
     return (
@@ -35,9 +36,11 @@ function Second() {
                 </div>
                 </div>
             </div>
-            <div className="text-center ">
+            <div className="text-center">
 
-                <p><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill bg-danger" type="submit">Learn More</button></p>
+                <p className="p-3"><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill " type="submit">
+                    Learn more
+                    </button></p>
             </div>
         </SecondWrapper>
     )

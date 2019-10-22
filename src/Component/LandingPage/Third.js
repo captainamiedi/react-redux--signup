@@ -26,5 +26,5 @@ export default function Third() {
 }
 
 const ThirdWrapper = styled.div`
-   background-image: url(${mobile})
+   background-image: url(${mobile});
 `;
