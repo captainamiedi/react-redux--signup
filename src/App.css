@@ -67,11 +67,23 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
+  /* background: rgba(0, 0, 0, 0.2); */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .search {
   background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 350px
+}
+.search h5 {
+  color: #ff9115
+}
+.country {
+  width: 50%;
+  padding: 6px;
+  transform: translate(50%, 50%);
+  border-radius: 15px;
 }

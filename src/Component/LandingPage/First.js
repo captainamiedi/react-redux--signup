@@ -25,11 +25,6 @@ function First() {
                     <p>third carousel</p>
                 </div>
             </Carousel>
-            <div className="location-search">
-                <div className="search">
-                    <h3>search</h3>
-                </div>
-            </div>
         </FirstWrapper>
     )
 }

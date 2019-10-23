@@ -16,7 +16,9 @@ export default function Fourth() {
                         <h5 className="card-title">Become a delivery agaent</h5>
                         <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
-                            <ButtonContainer>Apply</ButtonContainer>
+                            {/* <ButtonContainer> */}
+                                Apply
+                            {/* </ButtonContainer> */}
                         </div>
                     </div>
                 </div>
@@ -28,7 +30,9 @@ export default function Fourth() {
                         <h5 className="card-title">For Store Owner</h5>
                         <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
-                            <ButtonContainer>Apply</ButtonContainer>
+                            {/* <ButtonContainer> */}
+                                Apply
+                                {/* </ButtonContainer> */}
                         </div>
                     </div>
                 </div>
