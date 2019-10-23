@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, BrowserRouter, NavLink} from 'react-router-dom'
 import styled from 'styled-components';
 import logo from '../../images/BLACK.png';
 
@@ -12,7 +13,13 @@ function Navbar() {
                 <li className="nav-item mx-3">About Us</li>
                 <li className="nav-item mx-3">Shoppers</li>
                 <li className="nav-item mx-3">Contact Us</li>
-                <li className="nav-item mx-3"><button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">Login</button></li>
+                <li className="nav-item mx-3">
+                    <button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">
+                       <Link to="/about">
+                            Login
+                       </Link>
+                    </button>
+                </li>
             </ul>
             </div>
         </NavWrapper>

@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import {ButtonContainer} from '../Reuseable/Button';
 
 function Second() {
     return (
-        <div>
+        <SecondWrapper>
             <h2 className="text-center mt-3"><strong>How it works</strong></h2>
             <div className="row justify-content-center">
                 <div className="col-9 mx-0 col-md-6 col-lg-3 my-3 text-center">
@@ -36,10 +38,15 @@ function Second() {
             </div>
             <div className="text-center">
 
-                <p><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill bg-danger" type="submit">Learn More</button></p>
+                <p className="p-3"><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill " type="submit">
+                    Learn more
+                    </button></p>
             </div>
-        </div>
+        </SecondWrapper>
     )
 }
 
+const SecondWrapper = styled.div`
+    background-color: #fed6a2
+`;
 export default Second

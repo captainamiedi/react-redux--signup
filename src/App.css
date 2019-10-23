@@ -18,3 +18,75 @@ body {
   float: none; /* Added */
   margin-bottom: 10px; /* Added */
 }
+
+.button {
+  transform: translate(20px, 80px);
+  font-size: 2.5rem;
+}
+
+.download-app {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px 0px;
+}
+
+.download{
+  transform: translate(30px, 80px);
+}
+
+.apply{
+  background-image: linear-gradient(to right, #ff564f, #fe6948, #fb8e39);
+  transform: translate(70px, 10px);
+  padding: 4px 0px;
+  width: 50%;
+}
+
+.footer li{
+  list-style-type: none;
+  margin: 0px;
+  padding: 3px;
+}
+
+.footer button {
+  background-color: #5f6273; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.footer h5 {
+  text-align: end;
+}
+
+.location-search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: rgba(0, 0, 0, 0.2); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 350px
+}
+.search h5 {
+  color: #ff9115
+}
+.country {
+  width: 50%;
+  padding: 6px;
+  transform: translate(50%, 50%);
+  border-radius: 15px;
+}
+a {
+  color: #ffffff
+}

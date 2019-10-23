@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ButtonContainer = styled.button`
 text-transform: capitalize;
-
+background-image: linear-gradient(to right, #ff564f, #fb8e39, #fe6948);
 background: transparent;
 border: 0.05rem solid var(--lightBlue);
 color: ${prop => prop.cart ? "var(--mainYellow)" : "var(--lightBlue)"};
@@ -11,6 +11,10 @@ border-radius: 0.5rem;
 cursor: pointer;
 margin: 0.2rem 0.5rem 0.2rem 0;
 transistion: all 0.5s ease-in-out;
+background-image: linear-gradient(to right,#ff564f,#fb8e39,#fe6948);
+width: 50%;
+transform: translate(50%, 50%);
+padding: 7px;
 &: hover {
     background: ${props => props.cart ? "var(--mainYellow)": "var(--lightBlue)"};
     color: var(--mainBlue)
