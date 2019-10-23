@@ -1,6 +1,7 @@
 body {
   font-family: 'Open Sans', sans-serif !important;
   font-family: 'Oswald', sans-serif !important;
+<<<<<<< HEAD
   font-family: 'Arvo', serif !important;
 }
 .carousel {
@@ -89,4 +90,7 @@ body {
 }
 a {
   color: #ffffff
+=======
+  font-family: 'Montserrat', sans-serif !important;
+>>>>>>> Update on login and signup pages
 }
