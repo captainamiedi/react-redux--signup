@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react';
 import { Link } from 'react-router-dom';
 //import FacebookLogin from 'react-facebook-login';
@@ -67,15 +66,8 @@ class Login extends React.Component {
                 <p className="text-color">Sign up to make your orders for your favourite products in <br/>
                 the closet store available to you.</p>
                <div className="signup-options">
-                    {/*<FacebookLogin
-                    appId="419010218739851" //APP ID NOT CREATED YET
-                    fields="name,email,picture"
-                    callback={this.responseFacebook}
-                    cssClass="sign-up-facebook"
-                    icon="fa fa-facebook"
-                    /> */}
                     <FacebookLogin
-                        appId="419010218739851"
+                        appId={"'"+process.env.REACT_APP_FACEBOOK_APP_ID+"'"}
                         autoLoad
                         callback={this.responseFacebook}
                         render={renderProps => (
@@ -84,15 +76,8 @@ class Login extends React.Component {
                     />
                     <br />
             
-            
-                    {/*<GoogleLogin
-                    clientId="630564332340-hfo4rt6ecue8nlvd98lcfmetcanktpc7.apps.googleusercontent.com" //CLIENTID NOT CREATED YET
-                    buttonText="LOGIN WITH GOOGLE"
-                    onSuccess={this.responseGoogle}
-                    onFailure={this.responseGoogle}
-                    /> */}
                     <GoogleLogin
-                        clientId="630564332340-hfo4rt6ecue8nlvd98lcfmetcanktpc7.apps.googleusercontent.com"
+                        clientId= {process.env.REACT_APP_GOOGLE_APP_ID}
                         render={renderProps => (
                         <button onClick={renderProps.onClick} disabled={renderProps.disabled}className="btn btn-light btn-block sign-up-google"><i className="fa fa-google" aria-hidden="true"></i>&nbsp; &nbsp; <strong>Sign up with Google</strong></button>
                         )}
