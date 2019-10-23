@@ -9,16 +9,17 @@ function Navbar() {
             <img src={logo} alt="logo" className="navbar-brand pt-1" />
             <div>
             <ul className="navbar-nav pt-1">
-                <li className="nav-item mx-3">
-                    {/* <BrowserRouter>                     */}
-                        {/* <Link to="/about">Home</Link> */}
-                    {/* </BrowserRouter> */}
-                    <NavLink to="/about">Home</NavLink>
-                    </li>
+                <li className="nav-item mx-3">Home</li>
                 <li className="nav-item mx-3">About Us</li>
                 <li className="nav-item mx-3">Shoppers</li>
                 <li className="nav-item mx-3">Contact Us</li>
-                <li className="nav-item mx-3"><button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">Login</button></li>
+                <li className="nav-item mx-3">
+                    <button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">
+                       <NavLink to="/about">
+                            Login
+                       </NavLink>
+                    </button>
+                </li>
             </ul>
             </div>
         </NavWrapper>

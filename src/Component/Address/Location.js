@@ -25,35 +25,42 @@ export default class Location extends Component {
               address: e.target.value 
           })
       }
+
+      handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state)
+      }
     render() {
         const { country, region } = this.state;
-        console.log(this.state);
+        // console.log(this.state);
         return (
             <div className="location-search">
                 <div className="search shadow rounded">
                     <h5 className="text-center pt-3 mt-3">Enter Your Location</h5>
                     <p className="text-center">Expore Stores Around Your Area</p>
-                    <div className="">
-                    <CountryDropdown className="country"
-                        value={country}
-                        onChange={(val) => this.selectCountry(val)} 
-                    />
-                    </div>
-                    <div className="py-2">
-                    <RegionDropdown className="country"
-                        country={country}
-                        value={region}
-                        onChange={(val) => this.selectRegion(val)} 
-                    />
-                    </div>
-                    <div className="pb-4">
-                        <input className="country" 
-                            value={this.state.address} 
-                            onChange={this.handleAddress} 
-                            placeholder="Address"
+                    <form onSubmit={this.handleSubmit} >
+                        <div className="">
+                        <CountryDropdown className="country"
+                            value={country}
+                            onChange={(val) => this.selectCountry(val)} 
                         />
-                    </div>
-                    <ButtonContainer>Continue</ButtonContainer>
+                        </div>
+                        <div className="py-2">
+                        <RegionDropdown className="country"
+                            country={country}
+                            value={region}
+                            onChange={(val) => this.selectRegion(val)} 
+                        />
+                        </div>
+                        <div className="pb-4">
+                            <input className="country" 
+                                value={this.state.address} 
+                                onChange={this.handleAddress} 
+                                placeholder="Address"
+                            />
+                        </div>
+                        <ButtonContainer>Continue</ButtonContainer>
+                    </form>
                 </div>
             </div>
         )
