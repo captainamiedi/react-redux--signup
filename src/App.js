@@ -11,6 +11,7 @@ import About from './Component/About/About';
 import Login from './Component/Login/Login';
 import SignUp from './Component/SignUp/SignUp';
 import Navbar from './Component/LandingPage/Navbar';
+import Stores from './Component/Stores/Stores';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/about" component={About} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
+              <Route path = "/store" component={Stores} />
             </div>
 
           {/* </Router> */}
