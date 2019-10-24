@@ -6,6 +6,11 @@ $button-color-2: #FD9637;
     padding: 1rem 1rem !important;
     border: none !important;
 }
+%button-style2 {
+    border-radius: 2rem !important;
+    padding: 0.2rem 0.7rem !important;
+    border: none !important;
+}
 %button-color-style {
     background-image: linear-gradient(to right, $button-color-1, $button-color-2) !important;
 }
