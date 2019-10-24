@@ -36,9 +36,9 @@ export default class Location extends Component {
         return (
             <div className="location-search">
                 <div className="search shadow rounded">
-                    <h5 className="text-center pt-3 mt-3">Enter Your Location</h5>
-                    <p className="text-center">Expore Stores Around Your Area</p>
-                    <form onSubmit={this.handleSubmit} >
+                    <h5 className="text-center pt-3 mt-3"><strong>Get the products you need<br/> delivered in 59mins</strong></h5>
+                    <p className="text-center">Enter Your Location</p>
+                    <form onSubmit={this.handleSubmit} style={{marginTop: '-20px'}}>
                         <div className="">
                         <CountryDropdown className="country"
                             value={country}
@@ -58,8 +58,11 @@ export default class Location extends Component {
                                 onChange={this.handleAddress} 
                                 placeholder="Address"
                             />
+                        </div><br/>
+                        <div className="text-center">
+                        <button className="btn btn-light download-app">Download App</button> &nbsp; &nbsp;
+                        <button className="btn btn-success shop-now">Shop Now</button>
                         </div>
-                        <ButtonContainer>Continue</ButtonContainer>
                     </form>
                 </div>
             </div>

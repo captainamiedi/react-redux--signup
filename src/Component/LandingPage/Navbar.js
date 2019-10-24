@@ -14,11 +14,16 @@ function Navbar() {
                 <li className="nav-item mx-3">Shoppers</li>
                 <li className="nav-item mx-3">Contact Us</li>
                 <li className="nav-item mx-3">
-                    <button className="text-white btn btn-outline-success pt-0 shadow rounded border-0 rounded-pill" type="submit">
-                       <Link to="/about">
-                            Login
-                       </Link>
+                <Link to="/login"><button className="btn btn-light download-app" type="submit">
+                            LOG IN
                     </button>
+                </Link>
+                </li>
+                <li className="nav-item mx-3">
+                <Link to="/login"><button className="btn btn-success navbar-signup" type="submit">
+                            SIGN UP
+                    </button>
+                </Link>
                 </li>
             </ul>
             </div>
@@ -30,8 +35,6 @@ const NavWrapper = styled.nav`
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
-    background-image: linear-gradient(to right, #f5f3f2 0%, #f74639 50%, #f79d1e 100%);
-    color: #ffffff
 `;
 
 export default Navbar

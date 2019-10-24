@@ -32,6 +32,7 @@ function First() {
 const FirstWrapper = styled.div`
     display: flex;
     width: 100%;
+    position: relative;
     
 `
 
