@@ -1,6 +1,5 @@
 import React from 'react';
 //import { Link } from 'react-router-dom';
-import Navbar from '../LandingPage/Navbar';
 import axios from 'axios';
 class SignUp extends React.Component {
     constructor(props){
@@ -171,7 +170,6 @@ class SignUp extends React.Component {
     render(){
         return(
             <div>
-                <Navbar /><br/>
                 <div className="text-center container">
                     <h1><strong>SignUp Today</strong></h1>
                     <p className="text-color">Sign up to make your orders for your favourite products in <br/>

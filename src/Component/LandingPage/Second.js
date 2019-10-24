@@ -38,7 +38,7 @@ function Second() {
             </div>
             <div className="text-center">
 
-                <p className="p-3"><button className="text-white btn btn-outline-success shadow rounded border-0 rounded-pill " type="submit">
+                <p className="p-3"><button className="btn-success learn-more" type="submit">
                     Learn more
                     </button></p>
             </div>

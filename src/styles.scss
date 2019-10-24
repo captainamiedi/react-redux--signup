@@ -39,6 +39,9 @@ body {
     @extend %button-style;
     @extend %button-color-style;
     }
+.learn-more {
+   @extend .sign-in-button;
+   }
 .sign-up-button {
     @extend %button-style;
     @extend %button-color-style;
@@ -71,6 +74,26 @@ body {
     height: 100vh;
 }
 /* End of About css */
+.navbar-signup {
+    @extend %button-style2;
+    @extend %button-color-style;
+    box-shadow: 0px 2px 5px 2px #E3E3E3 !important;
+    }
+/* Location */
+.download-app {
+    @extend %button-style2;
+    background-color: #ffffff !important;
+    color: rgb(17, 16, 16) !important;
+    box-shadow: 0px 2px 5px 2px #E3E3E3 !important;
+    }
+.shop-now {
+    border-radius: 3rem !important;
+    padding: 0.5rem 2rem !important;
+    border: none !important;
+    background-color: $button-color-2 !important;
+}
+
+/* End of Location  */
 
 /* Small screen */
 @media (max-width: 767px) {
