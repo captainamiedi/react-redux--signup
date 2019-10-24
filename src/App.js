@@ -7,6 +7,7 @@ import store from './Store/store';
 import LandingPage from './Component/LandingPage/Index';
 import About from './Component/About/About';
 import Navbar from './Component/LandingPage/Navbar';
+import Stores from './Component/Stores/Stores';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
               <Route exact path="/" component={LandingPage} />
               <Route path="/about" component={About} />
+              <Route path = "/store" component={Stores} />
             </div>
 
           {/* </Router> */}

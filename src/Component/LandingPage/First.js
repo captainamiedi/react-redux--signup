@@ -17,11 +17,11 @@ function First() {
                     <img src={phone} alt="phone" style={{width: '25%'}}/>
                 </div>
                 <div>
-                    <img src="" alt="photo" />
+                    <img src="" alt="carousel" />
                     <p>second carousel</p>
                 </div>
                 <div>
-                    <img src="" alt="photo1" />
+                    <img src="" alt="carousel1" />
                     <p>third carousel</p>
                 </div>
             </Carousel>
