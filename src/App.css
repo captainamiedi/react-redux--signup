@@ -13,10 +13,10 @@ body {
 .carousel p {
   color: red;
 }
-.carousel-container {
+/* .carousel-container {
   display: flex;
   flex-direction: row;
-}
+} */
 .card {
   margin: 0 auto; /* Added */
   float: none; /* Added */
@@ -96,8 +96,8 @@ body {
   transform: translate(50%, 50%);
   border-radius: 15px;
 }
-a {
-  color: #ffffff
+a.nav-link {
+  color: #111111
 }
 .store-title{
   padding-top: 20px;
