@@ -11,21 +11,24 @@ import About from './Component/About/About';
 import Login from './Component/Login/Login';
 import SignUp from './Component/SignUp/SignUp';
 import Navbar from './Component/LandingPage/Navbar';
+import Stores from './Component/Stores/Stores';
+// import Modal from './Component/Reuseable/Modal';
 
 function App() {
   return (
     <React.Fragment>
       <Provider store={store}>
+        
         <BrowserRouter>
           {/* <Switch> */}
           {/* <Router> */}
             <div className="">
-        <Navbar />
 
               <Route exact path="/" component={LandingPage} />
               <Route path="/about" component={About} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
+              <Route path = "/store" component={Stores} />
             </div>
 
           {/* </Router> */}
@@ -33,7 +36,7 @@ function App() {
 
           {/* </Switch> */}
         </BrowserRouter>
-        {/* <LandingPage /> */}
+        {/* <Modal ref={(node) => {this.modal = node}} /> */}
       </Provider>
     </React.Fragment>
   );

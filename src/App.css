@@ -1,3 +1,7 @@
+:root {
+  --primary-font-family: 'Montserrat', sans-serif !important;
+  --secondary-font-family: 'Poppins', sans-serif !important;
+}
 body {
   font-family: 'Open Sans', sans-serif !important;
   font-family: 'Oswald', sans-serif !important;
@@ -80,7 +84,11 @@ body {
   height: 350px
 }
 .search h5 {
-  color: #ff9115
+  color: #ff9115;
+  font-family: var(--primary-font-family);
+}
+.search p {
+  font-family: var(--secondary-font-family);
 }
 .country {
   width: 50%;
@@ -90,4 +98,23 @@ body {
 }
 a {
   color: #ffffff
+}
+.store-title{
+  padding-top: 20px;
+  padding-left: 10rem;
+  font-family: var(--primary-font-family);
+}
+.store-title-input{
+  padding-top: 20px;
+  padding-left: 19rem;
+  position: relative;
+}
+.store-title-input input {
+  border-radius: 15px;
+  font-family: var(--primary-font-family);
+}
+.store-title-input i {
+  position: absolute;
+  top: 33px;
+  right: 12px;
 }
