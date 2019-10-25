@@ -72,3 +72,4 @@ export const products = [
         isClosed: true
     },
 ]
+

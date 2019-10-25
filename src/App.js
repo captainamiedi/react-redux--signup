@@ -12,6 +12,7 @@ import Login from './Component/Login/Login';
 import SignUp from './Component/SignUp/SignUp';
 import Navbar from './Component/LandingPage/Navbar';
 import Stores from './Component/Stores/Stores';
+import StoreDetails from './Component/StoreDetails/index';
 // import Modal from './Component/Reuseable/Modal';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={SignUp} />
               <Route path = "/store" component={Stores} />
+              <Route path ="/details" component={StoreDetails} />
             </div>
 
           {/* </Router> */}

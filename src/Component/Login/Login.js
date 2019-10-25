@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 //import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
+import styled from 'styled-components';
+import  Navbar from '../LandingPage/Navbar';
+
 class Login extends React.Component {
     constructor(props) {
         super(props);
@@ -61,58 +64,133 @@ class Login extends React.Component {
       }
     render(){
         return(
-            <div className="text-center container">
-                <h1><strong>SignUp Today</strong></h1>
-                <p className="text-color">Sign up to make your orders for your favourite products in <br/>
-                the closet store available to you.</p>
-               <div className="signup-options">
-                    <FacebookLogin
-                        appId={"'"+process.env.REACT_APP_FACEBOOK_APP_ID+"'"}
-                        autoLoad
-                        callback={this.responseFacebook}
-                        render={renderProps => (
-                            <button onClick={renderProps.onClick} className="btn btn-light btn-block sign-up-facebook"><i className="fa fa-facebook" aria-hidden="true"></i>&nbsp; &nbsp;<strong>Sign up with Facebook</strong></button>
-                        )}
+            <React.Fragment>
+             <Navbar />
+            <LoginWrapper className="text-center container">
+                <div className="">
+
+                <h1 className="log"><strong>Log In</strong></h1>
+                <div className="username">
+                    <input className="form-control" 
+                        type="text"
+                        placeholder="Username"
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                        required
+                        name="username"
                     />
-                    <br />
-            
-                    <GoogleLogin
-                        clientId= {process.env.REACT_APP_GOOGLE_APP_ID}
-                        render={renderProps => (
-                        <button onClick={renderProps.onClick} disabled={renderProps.disabled}className="btn btn-light btn-block sign-up-google"><i className="fa fa-google" aria-hidden="true"></i>&nbsp; &nbsp; <strong>Sign up with Google</strong></button>
-                        )}
-                        buttonText="Login"
-                        onSuccess={this.responseGoogle}
-                        onFailure={this.responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    /><br/>
-                    {/*<button className="btn btn-light btn-block sign-up-facebook"><i className="fa fa-facebook" aria-hidden="true"></i>&nbsp; &nbsp; <strong>Sign up with Facebook</strong></button><br/>
-        <button className="btn btn-light btn-block sign-up-google"><i className="fa fa-google" aria-hidden="true"></i>&nbsp; &nbsp; <strong>Sign up with Google</strong></button><br/> */}
-                    <Link to="/SignUp" ><button className="btn btn-success btn-block sign-up-button"><strong>Sign up</strong></button></Link><br/><br/> 
-               </div>
-               <hr className="signup-line" />
-                <div className="signup-login">
-                    <form onSubmit={this.handleSubmit}>
-                        <div className="row">
-                            <div className="col-sm-12 col-md-6 margin-input">
-                                <input name="username" className="form-control form-rounded" type="text" placeholder="Username" required value={this.state.username} onChange={this.handleChange} />
-                            </div>
-                            <div className="col-sm-12 col-md-6">
-                                <input name="password" id="password-field" className="form-control form-rounded" type="password" placeholder="Password" required value={this.state.password} onChange={this.handleChange} />
-                                <span className="p-viewer">
-                                <i id="pass-status" className="fa fa-eye" onClick={this.viewPassword} aria-hidden="true"></i>&nbsp; &nbsp;
-                                </span>
-                            </div>
+                </div>
+                <div className="username">
+                    <input className="form-control" 
+                        type="password"
+                        placeholder="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        required
+                        name="password"
+                    />
+                </div>
+                <div className="username">
+                    <button className="btn btn-success btn-block sign-in-button" onClick={this.handleSubmit}><strong>Log in</strong></button>
+                </div>
+                    <p>Login with</p>
+                    <div className="social">
+                        <div className="social-facebook">
+                            <FacebookLogin
+                                appId={"'"+process.env.REACT_APP_FACEBOOK_APP_ID+"'"}
+                                autoLoad
+                                callback={this.responseFacebook}
+                                render={renderProps => (
+                                    <button onClick={renderProps.onClick} className="btn btn-light  sign-up-facebook"><strong>Facebook</strong></button>
+                                )}
+                            />
                         </div>
-                        <br/>
-                        <button className="btn btn-success btn-block sign-in-button"><strong>Log in</strong></button>
-                    </form>
-                    {this.state.googleInfo.givenName}
-                </div><br/><br/>
-                <p className="text-color">By signing up i agree to the <a href="terms.html" className="text-red">terms</a> of service and <a href="privacy-policy.html" className="text-red">privacy policy</a></p>
+                        <div className="social-google">
+                            <GoogleLogin
+                                clientId= {process.env.REACT_APP_GOOGLE_APP_ID}
+                                render={renderProps => (
+                                <button onClick={renderProps.onClick} disabled={renderProps.disabled}className="btn btn-light sign-up-google"> <strong>Google</strong></button>
+                                )}
+                                buttonText="Login"
+                                onSuccess={this.responseGoogle}
+                                onFailure={this.responseGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
+                        </div>
+                    </div>
+                    <div className="forget">
+                        <Link to="">Forgot Password?</Link>
+                    </div>
+                    <div className="member">
+                        <p>Not a Memeber yet?</p>
+                        <Link to="/signup">Sign Up</Link>
+                    </div>
+                </div>
+               {/*  */}
                 
-            </div>
+            </LoginWrapper>
+            </React.Fragment>
         );
     }
 }
+
+const LoginWrapper = styled.div`
+    .log {
+        padding-top: 8%;
+        padding-bottom: 28px
+    }
+    .login-custom{
+        transform: translate(50%, 50%)
+    }
+    .username {
+        display: flex;
+        justify-content: center;
+        padding: 15px
+    }
+
+    input {
+        width: 30%;
+        border-radius: 20px;
+        padding: 22px;
+    }
+    .username button {
+        width: 30%
+    }
+    .social {
+        display: flex;
+        justify-content: center
+    }
+
+    .social-facebook {
+        padding: 0px 10px;
+    }
+    .social-facebook button{
+        background: #3B5998 !important;
+        color: #ffffff !important
+    }
+    .social-google {
+        padding: 0px 10px
+    }
+    .social-google button {
+        background: #F22727 !important;
+        color: #ffffff !important
+    }
+    .kSInCP {
+        padding: 0px !important;
+    }
+    .social-google button strong {
+        padding: 0px 20px
+    }
+    .social-facebook button strong {
+        padding: 0px 12px
+    }
+    .member {
+        display: flex;
+        justify-content: center;
+        padding: 17px
+    }
+    .forget {
+        padding: 15px
+    }
+`;
 export default Login;
