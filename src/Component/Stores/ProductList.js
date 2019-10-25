@@ -6,7 +6,7 @@ import open from '../../images/open_store.png';
 
 
 export default function ProductList(props) {
-    // console.log(props.product);
+
     const {img, category, name, isClosed } = props.product
     let size = 4;
     return (
