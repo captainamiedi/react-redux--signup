@@ -6,7 +6,7 @@ import open from '../../images/open_store.png';
 
 
 export default function ProductList(props) {
-    console.log(props.product);
+    // console.log(props.product);
     const {img, category, name, isClosed } = props.product
     let size = 4;
     return (
@@ -21,11 +21,11 @@ export default function ProductList(props) {
                 <div className="one">
                     <h4 className="vendor-name">{name}</h4>
                     <div className="row row-rating">
-                    <span class="fa fa-star  checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
+                    <span className="fa fa-star  checked"></span>
+                    <span className="fa fa-star checked"></span>
+                    <span className="fa fa-star checked"></span>
+                    <span className="fa fa-star"></span>
+                    <span className="fa fa-star"></span>
                     </div>
                 </div>
                 <div className="container">

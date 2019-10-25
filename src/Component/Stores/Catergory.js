@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 export default function Catergory(props) {
-    console.log(props.category)
+    // console.log(props.category)
     return (
         <CatergoryWrapper>
             <div className="category">

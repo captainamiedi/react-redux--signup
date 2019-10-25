@@ -13,7 +13,7 @@ export default function Fourth() {
                 <div className="card shadow rounded">
                     <img src={delivery} className="card-img-top" alt="..." />                   
                     <div className="card-body">
-                        <h5 className="card-title">Become a delivery agaent</h5>
+                        <h5 className="card-title text-capitalize">Become a delivery agent</h5>
                         <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
                             {/* <ButtonContainer> */}
@@ -27,7 +27,7 @@ export default function Fourth() {
                 <div className="card shadow rounded">
                     <img src={store} className="card-img-top" alt="..." />                   
                     <div className="card-body">
-                        <h5 className="card-title">For Store Owner</h5>
+                        <h5 className="card-title only">For Store Owner</h5>
                         <p className="card-text">Fill your cart with product from your favorite store.</p>
                         <div className="apply shadow rounded">
                             {/* <ButtonContainer> */}
@@ -44,4 +44,8 @@ export default function Fourth() {
 
 const FourthWrapper = styled.div`
     background-color: #eaeaea
+
+    .only {
+        padding-bottom: 24px
+    }
 `;

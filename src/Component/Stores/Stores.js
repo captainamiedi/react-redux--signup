@@ -2,31 +2,45 @@ import React, { Component } from 'react'
 import {products} from '../../data';
 import ProductList from './ProductList';
 import Title from './Title';
-import Navbar from './Navbar';
+import Navbar from '../LandingPage/Navbar';
+import Modal from '../Reuseable/Modal';
+import ModalContent from './ModalContent'
 
 export default class Stores extends Component {
-
     state= {
         products: products,
-        search: ''
+        search: '',
+        isOpen: false
     }
     
+    openModal = () => {
+        this.setState({
+            isOpen: true
+        })
+    }
+    closeModal = () => {
+        this.setState({
+            isOpen: false
+        })
+    }
+
     handleSearch = (e) => {
         this.setState({
             search: e.target.value
         })
     }
-
+    
     handleSubmit =(e) => {
         e.preventDefault();
         console.log(this.state.search)
     }
-
-     render() {
+    
+    render() {
+        // console.log(this.props.name)
         return (
             <React.Fragment>
-                <Navbar />
-                <Title handleSearch={this.handleSearch} search={this.state.search} handleSubmit={this.handleSubmit} name="payles"/>
+                <Navbar name="landing" openModal={this.openModal} closeModal={this.closeModal}/>
+                <Title handleSearch={this.handleSearch} search={this.state.search} handleSubmit={this.handleSubmit} name="stores"/>
                 <div className="py-5" style={{backgroundColor: '#ebebeb'}}>
                     <div className="container">
                         <div className="row">
@@ -38,6 +52,14 @@ export default class Stores extends Component {
                         </div>
                     </div>
                 </div>
+                {this.state.isOpen && 
+                <Modal 
+                   onCloseModal={this.closeModal} 
+                   content = {
+                       <ModalContent />
+                   }
+                />
+                }
             </React.Fragment>
             //   <Product />
         )
