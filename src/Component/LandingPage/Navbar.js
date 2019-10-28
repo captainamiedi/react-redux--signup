@@ -7,7 +7,7 @@ import Modal from '../Reuseable/Modal';
 
 function Navbar(props) {
     return (
-        <NavWrapper className="navbar navbar-expand-sm navbar-dark px-sm-5 container-fluid">
+        <NavWrapper className="navbar navbar-expand-md navbar-toggleable-md navbar-dark px-sm-5 container-fluid">
             <img src={logo} alt="logo" className="navbar-brand pt-1" />
             <div>
                 {props.name === 'landing' ? (
@@ -39,24 +39,37 @@ function Navbar(props) {
                     </li>
                 </ul>
                 ): (
-                    <ul className="navbar-nav pt-1">
-                        <li className="nav-item mx-3">Home</li>
-                        <li className="nav-item mx-3">About Us</li>
-                        <li className="nav-item mx-3">Shoppers</li>
-                        <li className="nav-item mx-3">Contact Us</li>
+                   <ul className="navbar-nav">
+                       <button className="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#collapse_target">
+                           <span className="navbar-toggle-icon"></span>
+                       </button>
+                       <div className="collapse navbar-collapse" id="collapse_target">
                         <li className="nav-item mx-3">
-                        <Link to="/login"><button className="btn btn-light download-app" type="submit">
-                                    LOG IN
-                            </button>
-                        </Link>
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item mx-3">
-                        <Link to="/login"><button className="btn btn-success navbar-signup" type="submit">
-                                    SIGN UP
-                            </button>
-                        </Link>
+                            <Link to="/about" className="nav-link">About us</Link>
                         </li>
-                    </ul>
+                        <li className="nav-item mx-3">
+                            <Link to="/" className="nav-link">Shoppers</Link>
+                        </li>
+                        <li className="nav-item mx-3">
+                            <Link to="/" className="nav-link">Contact Us</Link>
+                        </li>
+                        <li className="nav-item mx-3">
+                            <Link to="/login"><button className="btn btn-light download-app" type="submit">
+                                        LOG IN
+                                </button>
+                            </Link>
+                        </li>
+                        <li className="nav-item mx-3">
+                            <Link to="/signup"><button className="btn btn-success navbar-signup" type="submit">
+                                        SIGN UP
+                                </button>
+                            </Link>
+                        </li>
+                   </div>
+                   </ul>
                 )
                 }
             </div>
@@ -85,8 +98,12 @@ const NavWrapper = styled.nav`
     i.fa-cart-plus:before {
         padding-right: 10px
     }
-
+    .nav-link {
+        color: #111111 !important
+    }
+    .navbar-toggler {
+        background: #111111
+    }
 `;
 
 export default Navbar
-

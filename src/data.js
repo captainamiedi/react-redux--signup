@@ -1,7 +1,14 @@
 export const products = [
     {
         id: 1,
-        category: ['footwear', 'shoes', 'canvas', 'kito', 'gucci'],
+        category: [
+            'footwear',
+                'jogger', 
+            'shoes',
+             'canvas', 
+             'kito',
+             'gucci'
+        ],
         img: 'https://i.pinimg.com/originals/44/bc/aa/44bcaabc52fdc81dfca3a11d08d47e51.png',
         status: 'approved',
         shop_id: 12,
@@ -72,3 +79,5 @@ export const products = [
         isClosed: true
     },
 ]
+
+

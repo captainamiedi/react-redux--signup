@@ -29,10 +29,10 @@ class LandingPage extends Component {
         return (
             <div>
                 <Navbar />
-                <div style={{height:'90vh'}}>
+                {/* <div style={{height:'90vh'}}> */}
                 <First />
                 <Address/>
-                </div>
+                {/* </div> */}
                 <Second />
                 <Third />
                 <Fourth />
