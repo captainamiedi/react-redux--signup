@@ -124,6 +124,7 @@ class Login extends React.Component {
                     <div className="member">
                         <p>Not a Memeber yet?</p>
                         <Link to="/signup">Sign Up</Link>
+                        
                     </div>
                 </div>
                {/*  */}
