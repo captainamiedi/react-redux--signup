@@ -80,6 +80,4 @@ export const products = [
     },
 ]
 
-export const categoryDetails = [
-    
-]
+

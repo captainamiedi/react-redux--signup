@@ -26,8 +26,6 @@ class StoreDetails extends Component {
     //     })
     //   }
     render() {
-        const keys = Object.keys(this.state.products[0].category);
-        console.log(keys)
         
         // console.log(this.state.products[0].category);
         // console.log(this.props.productDetails.detailsProducts, 'details');
