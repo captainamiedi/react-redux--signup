@@ -1,24 +1,35 @@
 @import './StylePartials/_main';
-.p-viewer{
-  float: right;
-  margin-top: -38px;
+// .p-viewer{
+//   // margin-top: -38px;
+//   position: relative;
+//   z-index: 1;
+//   cursor:pointer;
+// }
+// .p-viewer2{
+//   // float: right;
+//   // margin-top: -40px;
+//   position: absolute;
+//   z-index: 1;
+//   cursor:pointer;
+//   top: 11px;
+//   bottom: 0px;
+//   right: 29px;
+// }
+.p-viewer {
   position: relative;
-  z-index: 1;
-  cursor:pointer;
-}
-.p-viewer2{
-  float: right;
-  margin-top: -40px;
-  position: relative;
-  z-index: 1;
-  cursor:pointer;
 }
 
+.p-viewer2{
+  position: absolute;
+    top: -28px;
+    left: 100px;
+    right: 0px;
+}
 .form-rounded {
   border-radius: 2rem !important;
   /* padding: 1.5rem 1rem !important; */
-  background-color: #EFEFEF !important;
-  border: 0px !important;
+  background-color: #ffffff !important;
+  border: 2px solid #B7B7B7 !important;
   }
 .text-red {
   color: #FB988E;

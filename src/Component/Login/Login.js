@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userActions } from '../../Store/Actions/UserAction';
 //import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
@@ -27,7 +29,11 @@ class Login extends React.Component {
     // handling of the form when you click on submit
     handleSubmit= (e)=> {
         e.preventDefault();
-        console.log(this.state);
+        const { username, password} = this.state;
+        if (username && password) {
+            this.props.login(username, password);
+        }
+        // console.log(this.state);
     }
     viewPassword(){
         let passwordInput = document.getElementById('password-field');
@@ -63,6 +69,7 @@ class Login extends React.Component {
         }
       }
     render(){
+        const { loggingIn } = this.props;
         return(
             <React.Fragment>
              <Navbar />
@@ -124,6 +131,7 @@ class Login extends React.Component {
                     <div className="member">
                         <p>Not a Memeber yet?</p>
                         <Link to="/signup">Sign Up</Link>
+                        
                     </div>
                 </div>
                {/*  */}
@@ -133,6 +141,15 @@ class Login extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    const { loggingIn } = state.authentication;
+    return { loggingIn };
+}
+
+const actionCreators = {
+    login: userActions.login
+};
 
 const LoginWrapper = styled.div`
     .log {
@@ -202,4 +219,4 @@ const LoginWrapper = styled.div`
         }
     }
 `;
-export default Login;
+export default connect(mapStateToProps, actionCreators)(Login);
