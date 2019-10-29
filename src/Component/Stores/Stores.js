@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import {products} from '../../data';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { getDetails, getProductsDetails } from '../../Store/Actions/DetailsAction';
 import ProductList from './ProductList';
 import Title from './Title';
 import Navbar from '../LandingPage/Navbar';
 import Modal from '../Reuseable/Modal';
 import ModalContent from './ModalContent'
 
-export default class Stores extends Component {
+class Stores extends Component {
     state= {
-        products: products,
         search: '',
         isOpen: false
     }
@@ -29,24 +29,45 @@ export default class Stores extends Component {
             search: e.target.value
         })
     }
+
+    componentDidMount() {
+        this.props.getDetails()
+    }
     
     handleSubmit =(e) => {
         e.preventDefault();
         console.log(this.state.search)
     }
+
+    handleDetails = (id) => {
+        const product = this.getItem(id);
+        // this.setState(()=> {
+        //     return { 
+        //         detailProduct: product,
+        //       }
+        // })
+        console.log('im here/......');
+        this.props.getProductsDetails(product)
+    }
+    getItem = (id) => {
+        const product = this.props.productDetails.products.find(item => item.id === id);
+        // console.log(product)
+        return product;
+    }
     
     render() {
         // console.log(this.props.name)
+        // console.log(this.props.productDetails.detailsProducts)
         return (
             <React.Fragment>
-                <Navbar name="landing" openModal={this.openModal} closeModal={this.closeModal}/>
-                <Title handleSearch={this.handleSearch} search={this.state.search} handleSubmit={this.handleSubmit} name="stores"/>
+                <Navbar name="Store" openModal={this.openModal} closeModal={this.closeModal}/>
+                <Title handleSearch={this.handleSearch} search={this.state.search} handleSubmit={this.handleSubmit} name="stores" store={this.props.productDetails.name}/>
                 <div className="py-5" style={{backgroundColor: '#ebebeb'}}>
                     <div className="container">
                         <div className="row">
-                            {this.state.products.map((product) => {
+                            {this.props.productDetails.products.map((product) => {
                                 return (
-                                    <ProductList key={product.id} product={product} />
+                                    <ProductList key={product.id} product={product} details ={() => this.handleDetails(product.id)}/>
                                 )
                             })}
                         </div>
@@ -65,3 +86,13 @@ export default class Stores extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    productDetails: state.productDetails
+});
+
+// const mapDispatchToProps = dispatch => ({
+//     productDetails: () => dispatch(details())
+// })
+
+export default connect(mapStateToProps, {getDetails, getProductsDetails})(Stores);

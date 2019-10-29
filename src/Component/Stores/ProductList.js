@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Catergory from './Catergory';
 import closed from '../../images/closed_store_one_kiosk.png'
@@ -8,10 +9,13 @@ import open from '../../images/open_store.png';
 export default function ProductList(props) {
 
     const {img, category, name, isClosed } = props.product
+    const handleDetails = props.details
+    console.log(typeof(handleDetails));
     let size = 4;
     return (
         <ProductWrapper className="col-12 mx-auto col-md-6 col-lg-3 my-3">
-            <div className="card">
+            <div className="card" onClick={ handleDetails}>
+                <Link to="/details">
                 <div className="img-container">
                     <div className="img-second-container">
                         <img src={img} alt="product" className="card-img-top" />
@@ -44,6 +48,7 @@ export default function ProductList(props) {
 
                     </div>
                 </div>
+                </Link>
             </div>  
         </ProductWrapper>
     )
