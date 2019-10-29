@@ -12,7 +12,7 @@ function First() {
                 <div className="carousel-container">
                     <div>
                         <p>first carousel</p>
-                        <button>search</button>
+                        <button>search</button> 
                     </div>
                     <img src={phone} alt="phone" style={{width: '25%'}}/>
                 </div>

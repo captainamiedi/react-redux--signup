@@ -2,17 +2,20 @@
   --primary-font-family: 'Montserrat', sans-serif !important;
   --secondary-font-family: 'Poppins', sans-serif !important;
 }
+
 body {
   font-family: 'Open Sans', sans-serif !important;
   font-family: 'Oswald', sans-serif !important;
   font-family: 'Montserrat', serif !important;
 }
+
 .carousel {
   width: 100%;
 }
 .carousel p {
   color: red;
 }
+
 .carousel-container {
   display: flex;
   flex-direction: row;
@@ -26,11 +29,6 @@ body {
 .button {
   transform: translate(20px, 80px);
   font-size: 2.5rem;
-}
-
-.download-app {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 20px 0px;
 }
 
 .download{
@@ -63,6 +61,7 @@ body {
 
 .footer h5 {
   text-align: end;
+  font-size: 14px !important;
 }
 
 .location-search {

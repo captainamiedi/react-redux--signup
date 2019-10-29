@@ -1,0 +1,183 @@
+/* style sheet */
+.footer ul li {
+   color: white;
+   text-align: center;
+   cursor: pointer;
+}
+
+.footer h5 {
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer p {
+    text-align: center;
+}
+
+.footer ul {
+    margin-left: 0px !important;
+    padding-left: 0px;
+}
+
+#work-with-us {
+    font-weight: bold !important;
+    font-size: 30px;
+    color: #FC5A53;
+    font-family: sans-serif;
+}
+
+
+#work-with-us .house-heading {
+    background-color: white;
+    /* margin-bottom: 0px !important; */
+}
+
+.our-partners {
+    /* border: 1px solid black; */
+    /* margin-left: 20px !important; */
+    /* margin-right: 20px !important; */
+    width: 100% !important;
+    height: 200px;
+    /* background-color: transparent; */
+    /* background-color: black; */
+}
+
+.house-heading p {
+    margin-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.first-heading {
+   color: #F98B45;
+   font-weight: bold;
+   font-size: 18px;
+   background-color: white;
+}
+
+.card-body {
+    margin-top: 0px;
+}
+
+.cont .numbering {
+    width: 70px;
+    padding-top: 9px;
+    font-weight: bold;
+    margin-left: 40%;
+    margin-top: 50px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 30px;
+    border: 3px solid #F98B45;
+}
+
+.cont .disc {
+    color: #FC5A53;
+    font-weight: bold;
+    font-size: 14px;
+    padding-top: 15px;
+    color: green;
+}
+
+.cont i {
+    color: #FA9B42;
+    font-size: 100px;
+}
+
+.cont .disc-bottom {
+    padding-top: 20px;
+    font-size: 14px;
+    /* color: green; */
+}
+
+.card {
+    padding-bottom: 30px;
+    /* border-radius: 20px !important; */
+}
+
+.download-app {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    border-radius: 0px !important;
+}
+
+.app-download {
+     background-color: rgba(0, 0, 0, 0.5);
+     width: 100% !important;
+     height: 100% !important;
+     padding-top: 100px;
+     padding-bottom: 50px;
+}
+
+.download {
+    font-weight: bold;
+    font-size: 50px !important;
+    font-family: sans-serif;
+    width: 100% !important;
+    color: white;
+    margin-top: 0%;
+    margin-left: 15%;
+    z-index: 2;
+}
+
+.mobile-phone {
+    width: 45% !important;
+    float: right !important;
+    margin-top: 0%;
+}
+
+.work-with-us-both p {
+    color: white !important;
+    margin-bottom: 0px;
+}
+
+.work-with-us-both {
+    border-radius: 30px !important;
+}
+
+.card-img-top {
+    /* border-top-left-radius: 20px;
+    border-top-right-radius: 20px; */
+}
+
+.second-heading {
+    font-size: 15px !important;
+}
+
+@media screen and (max-width: 600px) {
+    button {
+      /* background-color: olive; */
+      margin-left: 32%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,9 +12,10 @@ export default class Fifth extends Component {
     render() {
       const settings = {
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
+        // marginLeft: '20px',
         speed: 2000,
         autoplaySpeed: 2000,
         cssEase: "linear"
@@ -22,24 +23,38 @@ export default class Fifth extends Component {
       return (
         <FifthWrapper>
           <Slider {...settings}>
-            <div>
-              <img src={shoprite} alt="photo1" style={{width: '50%', height: 'auto'}} />
+            <div className="our-partners">
+            <div style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", width: "80%", height: "100%", backgroundImage: "url("+shoprite+")"}}>
+
             </div>
-            <div>
-            <img src={image1} alt="photo1" style={{width: '50%', height: 'auto'}} />
+              {/* <img src={shoprite} alt="photo1" style={{width: '50%', height: 'auto'}} /> */}
             </div>
-            <div>
-            <img src={image2} alt="photo1" style={{width: '50%', height: 'auto'}} />
+            <div className="our-partners">
+            <div style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", width: "80%", height: "100%", backgroundImage: "url("+image1+")"}}>
+
+                 </div>
+            {/* <img src={image1} alt="photo1" style={{width: '50%', height: 'auto'}} /> */}
             </div>
-            <div>
-            <img src={image3} alt="photo1" style={{width: '50%', height: 'auto'}} />
+            <div className="our-partners">
+                {/* <img src={image2} alt="photo1" style={{width: '50%', height: 'auto'}} /> */}
+                <div style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", width: "80%", height: "100%", backgroundImage: "url("+image2+")"}}>
+
+                 </div>
             </div>
-            <div>
-              <h3>5</h3>
-            </div>
-            <div>
-              <h3>6</h3>
-            </div>
+
+             <div className="our-partners">
+                 <div style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", width: "80%", height: "100%", backgroundImage: "url("+image3+")"}}>
+
+                 </div>
+                {/* <img src={image3} alt="photo1" style={{width: '50%', height: 'auto'}} /> */}
+            </div> 
+
+            <div className="our-partners">
+                 <div style={{backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundPosition: "center", width: "80%", height: "100%", backgroundImage: "url("+image2+")"}}>
+
+                 </div>
+                {/* <img src={image3} alt="photo1" style={{width: '50%', height: 'auto'}} /> */}
+            </div> 
           </Slider>
         </FifthWrapper>
       );
@@ -47,5 +62,7 @@ export default class Fifth extends Component {
 }
 
 const FifthWrapper = styled.div`
-    background-color: #eaeaea
+    
+    padding-top: 100px;
+    padding-bottom: 80px;
 `;
