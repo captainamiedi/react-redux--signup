@@ -1,14 +1,12 @@
+import { toast } from 'react-toastify';
 import { userConstants } from './Constant/types';
-import { History } from '../../Helpers/History';
+import { history } from '../../Helpers/History';
 import { alertActions } from './AlertActions';
 import { userService } from '../../Service/UserService';
+
+
  
 
-export const userActions = {
-    login,
-    register,
-
-};
 
 const login = (username, password) => {
     return dispatch => {
@@ -17,14 +15,16 @@ const login = (username, password) => {
         userService.login(username, password)
             .then(
                 user => { 
+                    console.log(user.message);
+                    toast.success(user.message);
                     dispatch(success(user));
-                    history.push('/');
+                    // window.location.href = '/store';
                 },
                 error => {
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
                 }
-            );
+                );
     };
 
     function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
@@ -37,20 +37,29 @@ const register = (user) => {
         dispatch(request(user));
 
         userService.register(user)
-            .then(
-                user => { 
-                    dispatch(success());
-                    history.push('/login');
+        .then(
+            user => { 
+                toast.success(user.message);
+                dispatch(success(user));
+                // window.location.href = '/login';
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {
+                    toast.error(error)
                     dispatch(failure(error.toString()));
                     dispatch(alertActions.error(error.toString()));
                 }
-            );
-    };
+                );
+            };
 
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
+
+
+export const userActions = {
+    login,
+    register,
+
+};

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import Loader from 'react-loader-spinner'
+import { userActions } from '../../Store/Actions/UserAction';
 import axios from 'axios';
 import Navbar from '../LandingPage/Navbar';
 import styled from 'styled-components';
@@ -11,12 +15,12 @@ class SignUp extends React.Component {
     constructor(){
         super();
         this.state = {
-        firstName: '',
-        lastName: '',
-        emailAddress: '',
-        phoneNumber: '',
+        firstname: '',
+        lastname: '',
+        email: '',
+        phone: '',
         address: '',
-        city: '',
+        state: '',
         country: '',
         username: '',
         password: '',
@@ -43,7 +47,7 @@ class SignUp extends React.Component {
 
     validateEmail = (e) => {
         this.setState({
-            emailAddress: e.target.value
+            email: e.target.value
             }
         );
         let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -60,7 +64,7 @@ class SignUp extends React.Component {
     
     validatePhoneNumber = (e) => {
         this.setState({
-            phoneNumber: e.target.value
+            phone: e.target.value
             }
         );
         let re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -141,13 +145,22 @@ class SignUp extends React.Component {
     //Handling of the form when you submit
     handleSubmit = (e) => {
         e.preventDefault();
-        if(this.state.firstName ===''|| this.state.lastName ==='' || this.state.emailAddress ==='' || this.state.phoneNumber ==='' || this.state.address ==='' || this.state.city ==='' ||this.state.country ==='' || this.state.username ==='' || this.state.password ==='' || this.state.confirmPassword ===''){
-            console.log('invalid........'); 
-            return false;
-        }
-        else if(this.state.password === this.state.confirmPassword){
-            console.log(this.state);
-            return true;
+        // if(this.state.firstName ===''|| this.state.lastName ==='' || this.state.emailAddress ==='' || this.state.phoneNumber ==='' || this.state.address ==='' || this.state.city ==='' ||this.state.country ==='' || this.state.username ==='' || this.state.password ==='' || this.state.confirmPassword ===''){
+        //     console.log('invalid........'); 
+        //     return false;
+        // }
+        // else
+         if(this.state.password === this.state.confirmPassword){
+            const 
+            {
+                firstname, lastname, password, email, state, country, phone
+            } = this.state;
+            const user = {
+                firstname, lastname, password, email, state, country, phone
+            }
+            console.log(user);
+            this.props.register(user)
+            // return true;
         }else if(this.state.password!==this.state.confirmPassword){
             return false;
         }
@@ -197,6 +210,24 @@ class SignUp extends React.Component {
     //-End of Passwords hide and show
 
     render(){
+        const { registering, registered  } = this.props;
+        if (registering) {
+            return (
+                <div style={{transform: 'translate(50%, 50%)', paddingTop: '10rem' }}>
+                <Loader
+                    type="Audio"
+                    color="#fe6948"
+                    height={100}
+                    width={100}
+                    timeout={8000} //3 secs
+                />
+                </div>
+            )
+        } else if (registered) {
+            return (
+                <Redirect to="login" />
+            )
+        } 
         return(
             <div>
                 <Navbar />
@@ -207,23 +238,23 @@ class SignUp extends React.Component {
                             <div className="row">
 
                                 <div className="col-md-3 col-sm-d-block">
-                                    <input className="form-control form-rounded margin-input" type="text" placeholder="First Name" required value={this.state.firstName} onChange = {(e)=>  {this.handleChange('firstName',e)}} />
+                                    <input className="form-control form-rounded margin-input" type="text" placeholder="First Name" required value={this.state.firstname} onChange = {(e)=>  {this.handleChange('firstname',e)}} />
                                 </div>
 
                                 <div className="col-md-3 .d-sm-block">
-                                    <input className="form-control form-rounded" type="text" placeholder="Last Name" required value={this.state.LastName} onChange = {(e)=>  {this.handleChange('lastName',e)}} />
+                                    <input className="form-control form-rounded" type="text" placeholder="Last Name" required value={this.state.Lastname} onChange = {(e)=>  {this.handleChange('lastname',e)}} />
                                 </div>
                             </div>
                             <br/>
                             <div className="row">
                                 <div className="col-md-3">
-                                    <input className="form-control form-rounded margin-input" type="text" placeholder="Email Address" required value={this.state.emailAddress} onChange = {(e)=>  {this.validateEmail(e)}} />
+                                    <input className="form-control form-rounded margin-input" type="text" placeholder="Email Address" required value={this.state.email} onChange = {(e)=>  {this.validateEmail(e)}} />
                                     <div className="feedback-error" style={{display:this.state.errorEmail}}>
                                         Email is required
                                     </div>
                                 </div>
                                 <div className="col-md-3">
-                                    <input className="form-control form-rounded" type="tel" inputMode="numeric" pattern="[0-9]*" placeholder="Phone Number" required value={this.state.phoneNumber} onChange = {(e)=>  {this.validatePhoneNumber(e)}} />
+                                    <input className="form-control form-rounded" type="tel" inputMode="numeric" pattern="[0-9]*" placeholder="Phone Number" required value={this.state.phone} onChange = {(e)=>  {this.validatePhoneNumber(e)}} />
                                     <div className="feedback-error" style={{display:this.state.errorPhone}}>
                                         Phone Number is required
                                     </div>
@@ -248,7 +279,7 @@ class SignUp extends React.Component {
                                 </select>
                             </div>
                                 <div className="col-md-3">
-                                    <select className="form-control form-rounded" type="text" placeholder="City" required onChange = {(e)=> {this.handleChange('city',e)}}>
+                                    <select className="form-control form-rounded" type="text" placeholder="City" required onChange = {(e)=> {this.handleChange('state',e)}}>
                                     <option value="">City</option>
                                     {this.state.cities.map((city, i) =>{
                                         return(<option key={i} value={city}>{city}</option>);
@@ -318,6 +349,16 @@ class SignUp extends React.Component {
             </div>
         );
     }
+}
+
+
+function mapStateToProps(state) {
+    const { registering, registered } = state.registration;
+    return { registering, registered};
+}
+
+const actionCreators = {
+    register: userActions.register
 }
 
 const SignUpWrapper = styled.div`
@@ -391,4 +432,4 @@ const SignUpWrapper = styled.div`
         }
     }
 `;
-export default SignUp;
+export default connect(mapStateToProps, actionCreators)(SignUp);

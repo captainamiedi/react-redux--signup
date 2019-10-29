@@ -8,6 +8,7 @@ export function alert(state = {}, action) {
         message: action.message
       };
     case alertConstants.ERROR:
+      console.log('failed');
       return {
         type: 'alert-danger',
         message: action.message

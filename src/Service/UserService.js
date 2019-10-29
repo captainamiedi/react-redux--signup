@@ -1,17 +1,13 @@
 import { authHeader } from '../Helpers/AuthHeader';
 
-export const userService = {
-    register,
-    login
-}
 
-const apiUrl = 'https://onekiosk-api.herokuapp.com/api/v1/';
+const apiUrl = 'https://onekiosk-api.herokuapp.com/api/v1';
 
 
 const register = (user) => {
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': "application/json" },
         body: JSON.stringify(user)
     };
     return fetch(`${apiUrl}/auth/signup`, requestOptions).then(handleResponse)
@@ -32,19 +28,20 @@ const login = (username, password) => {
 
             return user;
         });
-}
+    }
 
 
+    
 
-
-const handleResponse = (response) => {
-    return response.text().then(text => {
-        const data = text && JSON.parse(text);
-        if (!response.ok) {
+    const handleResponse = (response) => {
+        return response.text().then(text => {
+            const data = text && JSON.parse(text);
+            if (!response.ok) {
             if (response.status === 401) {
                 // auto logout if 401 response returned from api
-                logout();
-                location.reload(true);
+                // logout();
+                // location.reload(true);
+                console.log('failed')
             }
 
             const error = (data && data.message) || response.statusText;
@@ -53,4 +50,10 @@ const handleResponse = (response) => {
 
         return data;
     });
+}
+
+
+export const userService = {
+    register,
+    login
 }

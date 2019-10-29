@@ -1,4 +1,4 @@
-import { PRODUCT_DETAILS, NEW_PRODUCT_DETAILS } from './types';
+import { PRODUCT_DETAILS, NEW_PRODUCT_DETAILS } from './Constant/types';
 import {products} from '../../data';
 
 export const getDetails = () => {
