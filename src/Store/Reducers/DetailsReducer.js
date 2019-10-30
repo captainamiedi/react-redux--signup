@@ -1,4 +1,4 @@
-import { PRODUCT_DETAILS, NEW_PRODUCT_DETAILS } from '../Actions/types';
+import { PRODUCT_DETAILS, NEW_PRODUCT_DETAILS } from '../Actions/Constant/types';
 
 const initialState = {
     products:[],

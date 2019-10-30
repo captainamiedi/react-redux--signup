@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Loader from 'react-loader-spinner'
+import { userActions } from '../../Store/Actions/UserAction';
 //import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import GoogleLogin from 'react-google-login';
@@ -27,7 +31,16 @@ class Login extends React.Component {
     // handling of the form when you click on submit
     handleSubmit= (e)=> {
         e.preventDefault();
-        console.log(this.state);
+        const { username, password} = this.state;
+        // let formData = new FormData();
+        // formData.append('username', username);
+        // formData.append('password', password);
+        if (username && password) {
+            this.props.login(username, password);
+        }
+        // console.log(this.props);
+        // console.log(formData)
+        console.log(typeof(username.toString()), typeof(password));
     }
     viewPassword(){
         let passwordInput = document.getElementById('password-field');
@@ -63,12 +76,30 @@ class Login extends React.Component {
         }
       }
     render(){
+        const { loggingIn, loggedIn } = this.props;
+        if (loggingIn) {
+            return (
+                <div style={{transform: 'translate(50%, 50%)', paddingTop: '10rem' }}>
+                <Loader
+                    type="Audio"
+                    color="#fe6948"
+                    height={100}
+                    width={100}
+                    timeout={8000} //3 secs
+                />
+                </div>
+            )
+        } 
+        else if (loggedIn){
+            return (
+                <Redirect to="store" />
+            )} 
+            else {
         return(
             <React.Fragment>
              <Navbar />
             <LoginWrapper className="text-center container">
                 <div className="">
-
                 <h1 className="log"><strong>Log In</strong></h1>
                 <div className="username">
                     <input className="form-control" 
@@ -92,6 +123,9 @@ class Login extends React.Component {
                 </div>
                 <div className="username">
                     <button className="btn btn-success btn-block sign-in-button" onClick={this.handleSubmit}><strong>Log in</strong></button>
+                    {loggingIn &&
+                            <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        }
                 </div>
                     <p>Login with</p>
                     <div className="social">
@@ -124,15 +158,29 @@ class Login extends React.Component {
                     <div className="member">
                         <p>Not a Memeber yet?</p>
                         <Link to="/signup">Sign Up</Link>
+                        
                     </div>
                 </div>
+                    {/* {loggingIn &&
+
+                            <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        } */}
                {/*  */}
-                
             </LoginWrapper>
             </React.Fragment>
         );
+                    }
     }
 }
+
+const mapStateToProps = (state) => {
+    const { loggingIn, loggedIn } = state.authentication;
+    return { loggingIn, loggedIn };
+}
+
+const actionCreators = {
+    login: userActions.login
+};
 
 const LoginWrapper = styled.div`
     .log {
@@ -160,6 +208,10 @@ const LoginWrapper = styled.div`
         display: flex;
         justify-content: center
     }
+    .redirectLoginLoader {
+        min-height: calc(100vh - 10.5rem);
+        padding-top: 10.5rem;
+      }
 
     .social-facebook {
         padding: 0px 10px;
@@ -202,4 +254,4 @@ const LoginWrapper = styled.div`
         }
     }
 `;
-export default Login;
+export default connect(mapStateToProps, actionCreators)(Login);

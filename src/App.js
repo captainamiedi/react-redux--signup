@@ -3,6 +3,11 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
+// import 'react-redux-toastr/lib/css/react-redux-toastr.min.css'
+import 'react-toastify/dist/ReactToastify.min.css' 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+// import ReduxToastr from 'react-redux-toastr'
+import { ToastContainer } from 'react-toastify';
 import { Provider } from 'react-redux';
 import'./styles.scss';
 import store from './Store/store';
@@ -19,6 +24,7 @@ function App() {
   return (
     <React.Fragment>
       <Provider store={store}>
+      <ToastContainer autoClose={false}  />
         
         <BrowserRouter>
           {/* <Switch> */}
