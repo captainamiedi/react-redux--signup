@@ -15,15 +15,11 @@ body {
 .carousel p {
   color: red;
 }
-<<<<<<< HEAD
 
-.carousel-container {
-=======
 /* .carousel-container {
->>>>>>> 0af799ea6b4dfbcebf034accaf821f9a827a308c
   display: flex;
   flex-direction: row;
-} */
+} */ 
 .card {
   margin: 0 auto; /* Added */
   float: none; /* Added */
